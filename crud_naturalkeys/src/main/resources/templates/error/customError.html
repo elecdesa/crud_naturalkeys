@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header" />
+<!-- NAVBAR
+================================================== -->
+<body>
+
+	<div class="container">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-5"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">therealdanvega.com</a>
+				</div>
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-5">
+					<p class="navbar-text navbar-right">
+						Signed in as <a href="#" class="navbar-link">Guest User</a>
+					</p>
+				</div>
+			</div>
+		</nav>
+
+		<h2>Error Handler</h2>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Key</td>
+					<td>Value</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>TimeStamp</td>
+					<td th:text="${timestamp}"></td>
+				</tr>
+				<tr>
+					<td>Status</td>
+					<td th:text="${status}"></td>
+				</tr>
+				<tr>
+					<td>Message</td>
+					<td th:text="${message}"></td>
+				</tr>
+				<tr>
+					<td>Error</td>
+					<td th:text="${error}"></td>
+				</tr>
+				<tr>
+					<td>Path</td>
+					<td th:text="${path}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<div th:replace="common/header::footer"></div>
+	<div th:replace="common/header::body-bottom-scripts"></div>
+</body>
+</html>

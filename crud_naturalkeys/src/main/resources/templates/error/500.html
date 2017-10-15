@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header" />
+<!-- NAVBAR
+================================================== -->
+<body>
+
+	<div th:replace="common/header::navbar"></div>
+
+	<div class="container">
+		<div class="jumbotron">
+		<div class="container text-center">
+			<img src="../static/imgs/500.png" th:src="@{/imgs/500.png}" />
+			<p>Internal Server Error 500</p>
+		</div>
+		<br /> <br />
+		<div class="container">
+
+			<form th:action="@{/}" method="post" class="form-inline">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Volver</button>
+			</form>
+
+		</div>
+	</div>
+	</div>
+
+
+
+</body>
+</html>

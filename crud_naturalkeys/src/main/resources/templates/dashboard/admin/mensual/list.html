@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header" />
+<!-- NAVBAR
+================================================== -->
+<body>
+
+	<div th:replace="common/header::navbar"></div>
+	<div class="container">
+
+		<h2>List </h2>
+		<a th:href="@{/dashboard/admin/mensual/create}">Add New Mes</a>
+
+
+		<div class="table-responsive">
+			<table id="products" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Año</th>
+						<th>Mes</th>
+						<th>Código Alojamiento</th>
+						<th>Nº Plazas</th>
+						<th>View</th>
+						<th>Edit</th>
+
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="mensual : ${mensuales}">
+						<td th:text="${mensual.id.anio}"></td>
+						<td th:text="${mensual.id.mes}"></td>
+						<td th:text="${mensual.id.codalojamiento}"></td>
+						<td th:text="${mensual.plazas}"></td>
+
+
+						<td><a href="#"
+							th:href="@{/dashboard/admin/mensual/anio/__${mensual.id.anio}__/mes/__${mensual.id.mes}__/codalojamiento/__${mensual.id.codalojamiento}__}">View</a></td>
+
+						<td><a href="#"
+							th:href="@{/dashboard/admin/mensual/edit/anio/__${mensual.id.anio}__/mes/__${mensual.id.mes}__/codalojamiento/__${mensual.id.codalojamiento}__}">Edit</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+
+
+	</div>
+	<div th:replace="common/header::footer"></div>
+	<div th:replace="common/header::body-bottom-scripts"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>403-Acceso Prohibido</title>
+
+<!-- Bootstrap -->
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.5/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+</head>
+<body>
+
+
+	<div class="jumbotron">
+		<div class="container text-center">
+			<p>Uupps..... parece que ha habido un error</p>
+			<br />
+			<p>Se ha prohibido el acceso</p>
+			<br />
+
+		</div>
+		<br /> <br />
+		<div class="container">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>key</td>
+							<td>Value</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TimeStamp</td>
+							<td th:text="${timestamp}" />
+						</tr>
+						<tr>
+							<td>Status</td>
+							<td th:text="${status}" />
+						</tr>
+						<tr>
+							<td>Error</td>
+							<td th:text="${error}" />
+						</tr>
+						<tr>
+							<td>Message</td>
+							<td th:text="${message}" />
+						</tr>
+
+						<tr>
+							<td>Path</td>
+							<td th:text="${path}" />
+						</tr>
+
+					</tbody>
+
+
+				</table>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Volver</button>
+		</div>
+	</div>
+
+</body>
+</html>
+

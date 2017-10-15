@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header" />
+<!-- NAVBAR
+================================================== -->
+<body>
+
+	<div th:replace="common/header::navbar"></div>
+	<div class="container">
+
+		<h2>Create New Mes</h2>
+		<br />
+		<!-- /admin/post/save es un método en el controller que hace el trabajo y redirige a otras paginas -->
+
+
+		<form class="form-horizontal" th:object="${mensual}"
+			th:action="@{/dashboard/admin/mensual/save}" method="post">
+		
+			<div th:class="form-group"
+				th:classappend="${#fields.hasErrors('id.anio')}? 'has-error'">
+				<label class="col-sm-2 control-label">Año<span
+					class="required">*</span></label>
+				<div class="col-md-10">
+					<input type="text" class="form-control" th:field="*{id.anio}" /> <span
+						th:if="${#fields.hasErrors('id.anio')}" th:errors="*{id.anio}"
+						th:class="help-block">Año</span>
+				</div>
+			</div>
+
+			<div th:class="form-group"
+				th:classappend="${#fields.hasErrors('id.mes')}? 'has-error'">
+				<label class="col-sm-2 control-label">Mes <span
+					class="required">*</span></label>
+					
+				
+				<div class="col-md-10">
+					<select th:field="${mensual.id.mes}" th:object="${meses}"
+						class="custom-select" name="meses">
+						<option th:each="mes : ${meses}" th:value="${mes.id}"
+							th:selected="${mes.id == mensual.id.mes}" th:text="${mes.descripcion}"></option>
+					</select> <span th:if="${#fields.hasErrors('id.mes')}" th:errors="*{id.mes}"
+						th:class="help-block">Mes</span>
+				</div>
+			</div>
+
+			<div th:class="form-group"
+				th:classappend="${#fields.hasErrors('id.codalojamiento')}? 'has-error'">
+				<label class="col-sm-2 control-label">Código Alojamiento<span
+					class="required">*</span></label>
+				<div class="col-md-10">
+					<input type="text" class="form-control"
+						th:field="*{id.codalojamiento}" /> <span
+						th:if="${#fields.hasErrors('id.codalojamiento')}"
+						th:errors="*{id.codalojamiento}" th:class="help-block"></span>
+				</div>
+			</div>
+
+			<div th:class="form-group"
+				th:classappend="${#fields.hasErrors('plazas')}? 'has-error'">
+				<label class="col-sm-2 control-label">Nº Plazas<span
+					class="required"></span></label>
+				<div class="col-md-10">
+					<input type="text" class="form-control" th:field="*{plazas}" /> <span
+						th:if="${#fields.hasErrors('plazas')}" th:errors="*{plazas}"
+						th:class="help-block"></span>
+				</div>
+			</div>
+
+
+
+			<button type="submit" class="btn btn-primary pull-left">Submit</button>
+		</form>
+	</div>
+	<div th:replace="common/header::footer"></div>
+	<div th:replace="common/header::body-bottom-scripts"></div>
+</body>
+</html>

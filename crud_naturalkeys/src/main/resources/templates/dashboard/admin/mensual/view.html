@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header" />
+<!-- NAVBAR
+================================================== -->
+<body>
+
+	<div th:replace="common/header::navbar"></div>
+	<div class="container">
+
+		<h2>View </h2>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Año: </label>
+			<div class="col-md-10">
+				<p class="form-control-static" th:text="${mensual.id.anio}"></p>
+			</div>
+			<label class="col-sm-2 control-label">Mes: </label>
+			<div class="col-md-10">
+				<p class="form-control-static" th:text="${mes.descripcion}"></p>
+			</div>
+			<label class="col-sm-2 control-label">Código Alojamiento: </label>
+			<div class="col-md-10">
+				<p class="form-control-static" th:text="${mensual.id.codalojamiento}"></p>
+			</div>
+			
+			
+			<label class="col-sm-2 control-label">Plazas: </label>
+			<div class="col-md-10">
+				<p class="form-control-static" th:text="${mensual.plazas}"></p>
+			</div>
+		</div>
+
+
+
+		<a th:href="@{/dashboard/admin/mensual/list}">Back To
+			Mensuales List</a> <br /> <br /> <br />
+
+	</div>
+	<div th:replace="common/header::footer"></div>
+
+	<div th:replace="common/header::body-bottom-scripts"></div>
+</body>
+</html>
